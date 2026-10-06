@@ -75,11 +75,12 @@ f'''<section class="hero"><div class="wrap hero-inner">
       <div class="gather-card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/><circle cx="12" cy="12" r="2.5"/></svg></span><h3>Bay Area happenings</h3><p>Sharing other psychedelic events and gatherings from around the Bay Area.</p><span class="where">Across the Bay</span></div>
     </div>
   </section>
-  <section class="cards3" aria-label="Explore">
-    <a class="tile" href="events.html"><span class="tile-ico">{STAR}</span><h3>Events</h3><p>See what's happening this month.</p><span class="arrow">→</span></a>
-    <a class="tile" href="leads.html"><span class="tile-ico">◎</span><h3>Community Leads</h3><p>Meet the people who hold the space.</p><span class="arrow">→</span></a>
-    <a class="tile" href="partners.html"><span class="tile-ico">∞</span><h3>Community Partners</h3><p>Healers, sanctuaries and retreats we trust.</p><span class="arrow">→</span></a>
-  </section>
+  <section class="explore" aria-label="Explore"><p class="eyebrow">Explore</p><h2>Find your way in</h2>
+  <div class="cards3">
+    <a class="tile" href="events.html"><span class="tile-ico">{STAR}</span><h3>Events</h3><p>See what's happening this month.</p><span class="tile-cta">See the calendar <span aria-hidden="true">→</span></span></a>
+    <a class="tile" href="leads.html"><span class="tile-ico">◎</span><h3>Community Leads</h3><p>Meet the people who hold the space.</p><span class="tile-cta">Meet the leads <span aria-hidden="true">→</span></span></a>
+    <a class="tile" href="partners.html"><span class="tile-ico">∞</span><h3>Community Partners</h3><p>Healers, sanctuaries and retreats we trust.</p><span class="tile-cta">Meet our partners <span aria-hidden="true">→</span></span></a>
+  </div></section>
   <section class="upnext"><div class="row-head"><h2>Coming up</h2><a href="events.html">Full calendar →</a></div><div class="ev-list" id="ev-next"></div></section>
   <section class="cta-band">
     <div><h3>Hosting something?</h3><p>Anyone can submit a community event for the calendar.</p><a class="btn btn-light" href="{FORM}">Submit an event</a></div>
