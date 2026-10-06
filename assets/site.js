@@ -1,4 +1,4 @@
-// Events data. Later this can be loaded from the Google Sheet behind the "Submit an event" form.
+// Events data.
 const EVENTS = [
   { date: '2026-10-11', title: 'Community Hike: Lands End', start: '10:00 AM', end: '1:00 PM', city: 'San Francisco', desc: 'An easy coastal walk with time for sharing and quiet reflection.', link: null, rsvp: null, sample: true },
   { date: '2026-10-15', title: 'Medicine Music Study Group', start: '7:00 PM', end: '9:00 PM', city: 'Oakland', desc: 'Learning and singing medicine songs together. All voices welcome.', link: null, rsvp: null, sample: true },

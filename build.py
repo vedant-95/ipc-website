@@ -42,7 +42,7 @@ def page(fname, title, desc, body, extra_head=''):
 </main>
 <footer class="site-footer"><div class="wrap foot">
   <div><a class="brand" href="index.html"><img src="assets/logo-circle.png" alt="{NAME} logo" width="56" height="56"><span>{NAME}</span></a><p>San Francisco Bay Area · SF · Oakland · Marin</p></div>
-  <div class="foot-links"><a href="events.html">Events</a><a href="leads.html">Community Leads</a><a href="partners.html">Community Partners</a><a href="{FORM}">Submit an event</a><a href="{VENMO}" target="_blank" rel="noopener">Donate (Venmo)</a><a href="{INSTA}" target="_blank" rel="noopener">Instagram</a></div>
+  <div class="foot-links"><a href="events.html">Events</a><a href="leads.html">Community Leads</a><a href="partners.html">Community Partners</a><a href="{VENMO}" target="_blank" rel="noopener">Donate (Venmo)</a><a href="{INSTA}" target="_blank" rel="noopener">Instagram</a></div>
   <p class="disclaimer">The {NAME} is an educational and community organization. Nothing on this site is medical or legal advice. We do not sell or provide any substances. Community partners are independent organizations.</p>
 </div></footer>
 </body>
@@ -72,7 +72,6 @@ f'''<section class="hero"><div class="wrap hero-inner">
     <div class="gather-grid">
       <div class="gather-card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 20l6-10 4 6 3-4 5 8z"/><circle cx="17" cy="6" r="2"/></svg></span><h3>Community hikes</h3><p>Connecting with the land and each other on trails around the Bay.</p><span class="where">San Francisco · Marin</span></div>
       <div class="gather-card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span><h3>Medicine Music Study groups</h3><p>Gathering to learn, share and sing medicine music together.</p><span class="where">Oakland · Marin</span></div>
-      <div class="gather-card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/><circle cx="12" cy="12" r="2.5"/></svg></span><h3>Bay Area happenings</h3><p>Sharing other psychedelic events and gatherings from around the Bay Area.</p><span class="where">Across the Bay</span></div>
     </div>
   </section>
   <section class="explore" aria-label="Explore"><p class="eyebrow">Explore</p><h2>Find your way in</h2>
@@ -83,7 +82,6 @@ f'''<section class="hero"><div class="wrap hero-inner">
   </div></section>
   <section class="upnext"><div class="row-head"><h2>Coming up</h2><a href="events.html">Full calendar →</a></div><div class="ev-list" id="ev-next"></div></section>
   <section class="cta-band">
-    <div><h3>Hosting something?</h3><p>Anyone can submit a community event for the calendar.</p><a class="btn btn-light" href="{FORM}">Submit an event</a></div>
     <div><h3>Support the community</h3><p>Donations help keep our gatherings accessible to everyone.</p><a class="btn btn-light" href="{VENMO}" target="_blank" rel="noopener">Donate via Venmo</a></div>
     <div><h3>Follow along</h3><p>Photos, announcements and event reminders.</p><a class="btn btn-light" href="{INSTA}" target="_blank" rel="noopener">@integral.psych3delic</a></div>
   </section>
@@ -92,12 +90,10 @@ f'''<section class="hero"><div class="wrap hero-inner">
 page('events.html', f'Events | {NAME}',
      'Upcoming psychedelic community events in the San Francisco Bay Area: community hikes in SF and Marin, Medicine Music Study groups in Oakland and Marin, and more.',
 f'''<div class="wrap">
-  <div class="page-head"><div><p class="eyebrow">Gatherings</p><h1>Events</h1><p class="lede">Community hikes, Medicine Music Study groups and other psychedelic happenings around the Bay Area.</p></div>
-  <a class="btn btn-primary" href="#submit">+ Submit an event</a></div>
+  <div class="page-head"><div><p class="eyebrow">Gatherings</p><h1>Events</h1><p class="lede">Community hikes in SF and Marin and Medicine Music Study groups in Oakland and Marin.</p></div></div>
   <p class="notice">Events marked <span class="tag">Sample</span> are examples. Real events will appear here once the calendar is connected.</p>
   <div class="events-split"><div id="ev-cal"></div><div id="ev-detail" class="detail-panel"></div></div>
   <section class="all-events"><h2>All upcoming events</h2><div class="ev-list" id="ev-all"></div></section>
-  <section id="submit" class="all-events"><h2>Submit an event</h2><p class="lede">Anyone can share a community event. Submissions appear on the calendar after a quick review by our team.</p><p class="notice">The submission form is coming soon.</p></section>
   <p class="fine">Event details are provided by hosts. Please check each event's own page for the latest information.</p>
 </div>''')
 
