@@ -41,10 +41,9 @@ def page(fname, title, desc, body, extra_head=''):
 {body}
 </main>
 <footer class="site-footer"><div class="wrap foot">
-  <div><a class="brand" href="index.html"><img src="assets/logo-circle.png" alt="{NAME} logo" width="56" height="56"><span>{NAME}</span></a><p>San Francisco Bay Area · SF · Oakland · Marin</p></div>
+  <div><a class="brand" href="index.html"><img src="assets/logo-circle.png" alt="{NAME} logo" width="56" height="56"><span>{NAME}</span></a><p>San Francisco Bay Area · SF · Oakland · Marin</p><p class="credit">Website built by <a href="https://www.linkedin.com/in/vedant-kshirsagar/" target="_blank" rel="noopener">Vedant Kshirsagar</a></p></div>
   <div class="foot-links"><a href="events.html">Events</a><a href="leads.html">Community Leads</a><a href="partners.html">Community Partners</a><a href="{VENMO}" target="_blank" rel="noopener">Donate (Venmo)</a><a href="{INSTA}" target="_blank" rel="noopener">Instagram</a></div>
   <p class="disclaimer">The {NAME} is an educational and community organization. Nothing on this site is medical or legal advice. We do not sell or provide any substances. Community partners are independent organizations.</p>
-  <p class="credit">Website built by <a href="https://www.linkedin.com/in/vedant-kshirsagar/" target="_blank" rel="noopener">Vedant Kshirsagar</a></p>
 </div></footer>
 </body>
 </html>
