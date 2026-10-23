@@ -41,7 +41,7 @@ def page(fname, title, desc, body, extra_head=''):
 {body}
 </main>
 <footer class="site-footer"><div class="wrap foot">
-  <div><a class="brand" href="index.html"><img src="assets/logo-circle.png" alt="{NAME} logo" width="56" height="56"><span>{NAME}</span></a><p>San Francisco Bay Area · SF · Oakland · Marin</p><p class="credit">Website built by <a href="https://www.linkedin.com/in/vedant-kshirsagar/" target="_blank" rel="noopener">Vedant Kshirsagar</a></p></div>
+  <div><a class="brand" href="index.html"><img src="assets/logo-circle.png" alt="{NAME} logo" width="56" height="56"><span>{NAME}</span></a><p>San Francisco Bay Area · SF · Berkeley · Marin</p><p class="credit">Website built by <a href="https://www.linkedin.com/in/vedant-kshirsagar/" target="_blank" rel="noopener">Vedant Kshirsagar</a></p></div>
   <div class="foot-links"><a href="events.html">Events</a><a href="leads.html">Community Leads</a><a href="partners.html">Community Partners</a><a href="{VENMO}" target="_blank" rel="noopener">Donate (Venmo)</a><a href="{INSTA}" target="_blank" rel="noopener">Instagram</a></div>
   <p class="disclaimer">The {NAME} is an educational and community organization. Nothing on this site is medical or legal advice. We do not sell or provide any substances. Community partners are independent organizations.</p>
 </div></footer>
@@ -52,10 +52,10 @@ def page(fname, title, desc, body, extra_head=''):
 
 org = {"@context": "https://schema.org", "@type": "Organization", "name": NAME, "logo": "assets/logo-circle.png",
        "description": "A San Francisco Bay Area psychedelic community centering collective liberation, spirituality, and brave spaces for mutual growth.",
-       "sameAs": [INSTA], "areaServed": ["San Francisco", "Oakland", "Marin County", "San Francisco Bay Area"]}
+       "sameAs": [INSTA], "areaServed": ["San Francisco", "Berkeley", "Marin County", "San Francisco Bay Area"]}
 
 page('index.html', f'{NAME} | Bay Area Psychedelic Community',
-     'A San Francisco Bay Area psychedelic community for collective liberation, spirituality and brave spaces for mutual growth. Community hikes in SF and Marin and Medicine Music Study groups in Oakland and Marin.',
+     'A San Francisco Bay Area psychedelic community for collective liberation, spirituality and brave spaces for mutual growth. Community hikes in SF and Marin and Medicine Music Study groups in Berkeley.',
 f'''<section class="hero"><div class="wrap hero-inner">
   <div><p class="eyebrow">San Francisco Bay Area</p>
     <h1>{NAME}</h1>
@@ -71,7 +71,7 @@ f'''<section class="hero"><div class="wrap hero-inner">
   <section class="gather"><p class="eyebrow">How we gather</p><h2>Psychedelic community around the Bay</h2>
     <div class="gather-grid">
       <div class="gather-card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 20l6-10 4 6 3-4 5 8z"/><circle cx="17" cy="6" r="2"/></svg></span><h3>Community hikes</h3><p>Connecting with the land and each other on trails around the Bay.</p><span class="where">San Francisco · Marin</span></div>
-      <div class="gather-card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span><h3>Medicine Music Study groups</h3><p>Gathering to learn, share and sing medicine music together.</p><span class="where">Oakland · Marin</span></div>
+      <div class="gather-card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span><h3>Medicine Music Study groups</h3><p>Gathering to learn, share and sing medicine music together.</p><span class="where">Berkeley</span></div>
     </div>
   </section>
   <section class="explore" aria-label="Explore"><p class="eyebrow">Explore</p><h2>Find your way in</h2>
@@ -88,25 +88,56 @@ f'''<section class="hero"><div class="wrap hero-inner">
 </div>''', f'<script type="application/ld+json">{json.dumps(org)}</script>\n')
 
 page('events.html', f'Events | {NAME}',
-     'Upcoming psychedelic community events in the San Francisco Bay Area: community hikes in SF and Marin, Medicine Music Study groups in Oakland and Marin, and more.',
+     'Upcoming psychedelic community events in the San Francisco Bay Area: community hikes in SF and Marin, Medicine Music Study groups in Berkeley, and more.',
 f'''<div class="wrap">
-  <div class="page-head"><div><p class="eyebrow">Gatherings</p><h1>Events</h1><p class="lede">Community hikes in SF and Marin and Medicine Music Study groups in Oakland and Marin.</p></div></div>
-  <p class="notice">Events marked <span class="tag">Sample</span> are examples. Real events will appear here once the calendar is connected.</p>
+  <div class="page-head"><div><p class="eyebrow">Gatherings</p><h1>Events</h1><p class="lede">Community hikes in SF and Marin and Medicine Music Study groups in Berkeley.</p></div></div>
+  <p class="notice" id="sample-note">Events marked <span class="tag">Sample</span> are examples. Real events will appear here once the calendar is connected.</p>
   <div class="events-split"><div id="ev-cal"></div><div id="ev-detail" class="detail-panel"></div></div>
   <section class="all-events"><h2>All upcoming events</h2><div class="ev-list" id="ev-all"></div></section>
   <p class="fine">Event details are provided by hosts. Please check each event's own page for the latest information.</p>
 </div>''')
 
-leads = ''.join(f'''<article class="lead"><div class="lead-photo">Photo</div><div><h3>Lead name {i}</h3><p class="role">Role coming soon</p><p>A short bio for this community lead is coming soon.</p></div></article>''' for i in range(1, 5))
+KATH_EMAIL = 'hummingbirdmagic@protonmail.com'
+KATH_IG = 'https://www.instagram.com/integralwithkatherine/'
+SANDRO_EMAIL = 'sandro.turriate@gmail.com'
+HN = 'https://humannaturemushrooms.com'
+def ext(u, t): return f'<a href="{u}" target="_blank" rel="noopener">{t}</a>'
+L = [
+  ('katherine.jpg', 'Katherine Tomlinson', 'she/they', 'Founder &amp; Coordinator · Marin hikes · Medicine Music Study Group', [
+    "Katherine Tomlinson is the founder and coordinator of the Integral Psychedelic Community, where she co-leads the community’s Marin hikes and Medicine Music Study Group, creating spaces for people to connect with nature, music, and one another. Currently she lives in unceded Coastal Miwok territory, also known as Sausalito, CA.",
+    "Katherine has been involved in psychedelic education, advocacy, and community organizing since 2007. She holds a liberal arts degree from The Evergreen State College, where she was able to focus her study on psychedelics and plant teachers, space holding for expanded states of consciousness, and community building. Currently, she is working towards a masters degree from the California Institute of Integral Studies, works as ceremonialist in one-on-one containers, organizes educational events, contributes to conferences, and has supported the development of spaces for learning, dialogue, and community building with psychedelics and plant teachers for over half of her life.",
+    "Her current studies focus on the traditional Andean teacher plant Wachuma (San Pedro), with a particular interest in its archaeological history, cultural significance, and relationship to Andean cosmology. Through ongoing study, travel, and relationships with traditional knowledge keepers in Peru, she seeks to deepen her understanding of the cactus and the cultures that have maintained relationships with it for thousands of years.",
+    f"Katherine’s approach emphasizes cultural respect, reciprocity, lifelong learning, harm reduction, and the importance of building meaningful relationships between people, communities, and the natural world. She can be reached via <a href=\"mailto:{KATH_EMAIL}\">email</a>, or on Instagram at {ext(KATH_IG, '@integralwithkatherine')}."],
+   [(f'mailto:{KATH_EMAIL}', 'Email Katherine'), (KATH_IG, 'Instagram ↗')]),
+  ('sandro.jpg', 'Sandro', 'he/him', 'Community Lead · San Francisco &amp; Marin hikes', [
+    "Sandro is a medicine guide and musician offering a heart-centered and grounded approach to healing. A Peruvian American cis man residing on unceded Ohlone land in San Francisco, he has been immersed in the study of plant medicine and master plant diets across Central and South America. His primary training draws from his ancestral heritage in Peru, specifically within the Shipibo tradition. Sandro’s healing journey includes exploring various realms of consciousness through breathwork with Wim Hof, Vipassana meditation, Reiki energy healing, Leela School Psychedelic Facilitation, and Hakomi Somatic Coaching.",
+    f"For the Integral Psychedelic Community, he leads the hikes in San Francisco and occasionally helps lead the hikes in Marin. He finds joy tuning in with people and nature during group hikes, connecting deeply with the land and those around him. You can reach out to him at {ext('https://turriate.com', 'turriate.com')} or by <a href=\"mailto:{SANDRO_EMAIL}\">email</a>."],
+   [('https://turriate.com', 'Visit website ↗'), (f'mailto:{SANDRO_EMAIL}', 'Email Sandro')]),
+  (None, 'Romeo', 'he/him', 'Community Lead · Medicine Music Study Group', [
+    "Romeo is a lifelong musician and student of sacred traditions who co-facilitates the Integral Psychedelic Community’s Medicine Music Study Group. His musical journey now focuses on sacred and devotional music and traditional instruments. Drawing inspiration from his initiation in three spiritual lineages, he explores music as a pathway for healing, meditation, and connection.",
+    "He also co-leads a Bay Area music collective and hosts community gatherings centered on meditation, sacred sound, shared musical experiences, and community building. He also provides spiritual guidance, energy healing, meditation, and integrative approaches to personal transformation. His approach emphasizes cultural respect, lifelong learning, and the power of music to bring people together."], []),
+  ('sky.jpg', 'Sky', None, 'Community Lead · Marin hikes', [
+    f"Sky co-leads the community hikes in Marin and is the founder of the company {ext(HN, 'Human Nature')}. Bio and photo coming soon!"],
+   [(HN, 'Human Nature ↗')]),
+]
+def lead_card(img, n, pr, role, paras, links):
+    TGT = ' target="_blank" rel="noopener"'
+    pron = f' <span class="pronouns">({pr})</span>' if pr else ''
+    photo = (f'<img class="lead-photo" src="assets/leads/{img}" alt="{n}, {NAME} community lead" width="640" height="640">' if img
+             else f'<div class="lead-photo lead-photo-empty"><span>{n}</span><small>Photo coming soon</small></div>')
+    btns = ''.join(f'<a class="btn btn-sm {"btn-primary" if i == 0 else "btn-ghost"}" href="{u}"{"" if u.startswith("mailto:") else TGT}>{t}</a>' for i, (u, t) in enumerate(links))
+    return (f'<article class="lead">{photo}<div class="lead-body"><h3>{n}{pron}</h3><p class="role">{role}</p>'
+            + ''.join(f'<p>{x}</p>' for x in paras) + (f'<div class="lead-links">{btns}</div>' if btns else '') + '</div></article>')
+leads = ''.join(lead_card(*l) for l in L)
 page('leads.html', f'Community Leads | {NAME}',
-     'Meet the community leads of the Integral Psychedelic Community in the San Francisco Bay Area.',
+     'Meet the community leads of the Integral Psychedelic Community: Katherine Tomlinson, Sandro, Romeo and Sky, who lead community hikes in SF and Marin and the Medicine Music Study Group in Berkeley.',
 f'''<div class="wrap">
   <div class="page-head"><div><p class="eyebrow">The people</p><h1>Community Leads</h1><p class="lede">The facilitators and organizers who hold space for our community.</p></div></div>
   <div class="leads">{leads}</div>
 </div>''')
 
 P = [
-  ('ronin-rao.jpg', 'Sandro Turriate', 'Ronin Rao', 'https://roninrao.com', 'Sound baths · Meditation · Cacao circles',
+  ('ronin-rao.jpg', 'Ronin Rao', 'Sound healing &amp; ceremony', 'https://roninrao.com', 'Sound baths · Meditation · Cacao circles',
    'A medicine guide and musician offering a heart-centered, grounded approach to healing through sound baths, individual and group meditation, and cacao circles. His training is rooted in the Shipibo tradition of Peru, and includes psilocybin facilitator training and the Zendo Project\'s integration program.'),
   ('human-nature.jpg', 'Human Nature', 'Human Nature Sanctuary', 'https://humannaturemushrooms.com', 'Nonprofit sanctuary · 21+',
    'A nonprofit religious community rooted in reverence for nature, consciousness and intentional practice. They describe themselves as a sanctuary at the intersection of science and spirit, supporting self-inquiry, connection and personal growth.'),
@@ -116,7 +147,7 @@ P = [
 cards = ''.join(f'''<article class="partner"><a class="partner-shot" href="{u}" target="_blank" rel="noopener" tabindex="-1"><img src="assets/partners/{img}" alt="Preview of the {n} website" loading="lazy" width="800" height="500"></a>
   <div class="partner-body"><h3>{n}</h3><p class="partner-org">{org_}</p><p class="partner-tags">{tags}</p><p>{blurb}</p><a class="btn btn-sm btn-primary" href="{u}" target="_blank" rel="noopener">Visit website ↗</a></div></article>''' for img, n, org_, u, tags, blurb in P)
 page('partners.html', f'Community Partners | {NAME}',
-     'Community partners of the Integral Psychedelic Community: Sandro Turriate (Ronin Rao), Human Nature and Honey Moon Farm.',
+     'Community partners of the Integral Psychedelic Community: Ronin Rao, Human Nature and Honey Moon Farm.',
 f'''<div class="wrap">
   <div class="page-head"><div><p class="eyebrow">Friends of the community</p><h1>Community Partners</h1><p class="lede">Healers, sanctuaries and retreats we work alongside and trust.</p></div></div>
   <div class="partners">{cards}</div>
