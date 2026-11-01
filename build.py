@@ -22,7 +22,7 @@ def page(fname, title, desc, body, extra_head=''):
 <meta property="og:site_name" content="{NAME}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:image" content="https://integralpsychedeliccommunity.com/assets/og-image.jpg">
 <link rel="icon" href="assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="assets/icon-32.png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
