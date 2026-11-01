@@ -3,7 +3,7 @@ ROOT = os.path.expanduser('~/repos/ipc-website')
 NAME = 'Integral Psychedelic Community'
 VENMO = 'https://venmo.com/u/hummingbirdmagic'
 FORM = 'events.html#submit'
-INSTA = 'https://www.instagram.com/integral.psych3delic/'
+INSTA = 'https://www.instagram.com/integralwithkatherine/'
 STAR = '<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>'
 IG = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg>'
 NAV = [('index.html', 'Home'), ('events.html', 'Events'), ('leads.html', 'Community Leads'), ('partners.html', 'Community Partners')]
@@ -83,7 +83,7 @@ f'''<section class="hero"><div class="wrap hero-inner">
   <section class="upnext"><div class="row-head"><h2>Coming up</h2><a href="events.html">Full calendar →</a></div><div class="ev-list" id="ev-next"></div></section>
   <section class="cta-band">
     <div><h3>Support the community</h3><p>Donations help keep our gatherings accessible to everyone.</p><a class="btn btn-light" href="{VENMO}" target="_blank" rel="noopener">Donate via Venmo</a></div>
-    <div><h3>Follow along</h3><p>Photos, announcements and event reminders.</p><a class="btn btn-light" href="{INSTA}" target="_blank" rel="noopener">@integral.psych3delic</a></div>
+    <div><h3>Follow along</h3><p>Photos, announcements and event reminders.</p><a class="btn btn-light" href="{INSTA}" target="_blank" rel="noopener">@integralwithkatherine</a></div>
   </section>
 </div>''', f'<script type="application/ld+json">{json.dumps(org)}</script>\n')
 
