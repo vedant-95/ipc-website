@@ -91,7 +91,6 @@ page('events.html', f'Events | {NAME}',
      'Upcoming psychedelic community events in the San Francisco Bay Area: community hikes in SF and Marin, Medicine Music Study groups in Berkeley, and more.',
 f'''<div class="wrap">
   <div class="page-head"><div><p class="eyebrow">Gatherings</p><h1>Events</h1><p class="lede">Community hikes in SF and Marin and Medicine Music Study groups in Berkeley.</p></div></div>
-  <p class="notice" id="sample-note">Events marked <span class="tag">Sample</span> are examples. Real events will appear here once the calendar is connected.</p>
   <div class="events-split"><div id="ev-cal"></div><div id="ev-detail" class="detail-panel"></div></div>
   <section class="all-events"><h2>All upcoming events</h2><div class="ev-list" id="ev-all"></div></section>
   <p class="fine">Event details are provided by hosts. Please check each event's own page for the latest information.</p>

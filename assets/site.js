@@ -3,13 +3,10 @@
 const SHEET_ID = '';
 const SHEET_TAB = 'Events';
 
-// Hand-added events and samples. Samples are hidden once the Sheet is connected.
+// Hand-added events.
 // Eventbrite events are loaded from assets/eventbrite.json, which a daily GitHub Action updates.
 let EVENTS = [
-  { date: '2026-10-15', title: 'Medicine Music Study Group', start: '7:00 PM', end: '9:00 PM', city: 'Berkeley', desc: 'Learning and singing medicine songs together. All voices welcome.', link: null, rsvp: null, sample: true },
-  { date: '2026-10-17', title: 'Gathering for Prayer with Ronin Rao', start: '3:00 PM', end: '10:00 PM', city: 'San Francisco', desc: 'A ceremony gathering hosted by community partner Ronin Rao.', link: 'https://roninrao.com', rsvp: null, sample: false },
-  { date: '2026-10-29', title: 'Medicine Music Study Group', start: '7:00 PM', end: '9:00 PM', city: 'Berkeley', desc: 'Learning and singing medicine songs together. All voices welcome.', link: null, rsvp: null, sample: true },
-  { date: '2026-11-12', title: 'Medicine Music Study Group', start: '7:00 PM', end: '9:00 PM', city: 'Berkeley', desc: 'Learning and singing medicine songs together. All voices welcome.', link: null, rsvp: null, sample: true },
+  { date: '2026-10-17', title: 'Gathering for Prayer with Ronin Rao', start: '3:00 PM', end: '10:00 PM', city: 'San Francisco', desc: 'A ceremony gathering hosted by community partner Ronin Rao.', link: 'https://roninrao.com', rsvp: null },
 ].map(e => ({ ...e, date: new Date(e.date + 'T12:00:00') }));
 
 const STAR = '<svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>';
@@ -23,7 +20,7 @@ function eventCard(e, showDate = true) {
   return `<article class="ev-card">
     ${showDate ? `<div class="ev-date"><span class="ev-mon">${e.date.toLocaleDateString('en-US', { month: 'short' })}</span><span class="ev-num">${e.date.getDate()}</span></div>` : ''}
     <div class="ev-body">
-      <h4 class="ev-title">${e.title}${e.sample ? '<span class="tag">Sample</span>' : ''}</h4>
+      <h4 class="ev-title">${e.title}</h4>
       <p class="ev-meta">${showDate ? e.date.toLocaleDateString('en-US', { weekday: 'short' }) + ' · ' : ''}${e.start} – ${e.end} · ${e.city}</p>
       <p class="ev-desc">${e.desc}</p>
       <div class="ev-actions">
@@ -109,13 +106,11 @@ async function loadSheet() {
   const c = { date: col('date'), title: col('event name'), start: col('start'), end: col('end'), city: col('location'), desc: col('description'), rsvp: col('rsvp'), link: col('more info') };
   return rows.map(r => ({
     date: sheetDate(r[c.date]), title: esc(r[c.title]), start: esc(sheetTime(r[c.start])), end: esc(sheetTime(r[c.end])),
-    city: esc(r[c.city]), desc: esc(r[c.desc]), rsvp: url(r[c.rsvp]), link: url(r[c.link]), sample: false,
+    city: esc(r[c.city]), desc: esc(r[c.desc]), rsvp: url(r[c.rsvp]), link: url(r[c.link]),
   })).filter(e => e.date && e.title);
 }
 
 function render() {
-  const note = document.getElementById('sample-note');
-  if (note) note.hidden = !EVENTS.some(e => e.sample);
   const cal = document.getElementById('ev-cal');
   if (cal) calendar(cal, document.getElementById('ev-detail'));
   const all = document.getElementById('ev-all');
@@ -129,14 +124,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!document.querySelector('#ev-cal, #ev-all, #ev-next')) return;
   try {
     const res = await fetch('assets/eventbrite.json', { cache: 'no-cache' });
-    if (res.ok) EVENTS = [...EVENTS, ...(await res.json()).map(e => ({ ...e, date: new Date(e.date + 'T12:00:00'), sample: false }))];
+    if (res.ok) EVENTS = [...EVENTS, ...(await res.json()).map(e => ({ ...e, date: new Date(e.date + 'T12:00:00') }))];
   } catch (err) { console.warn('Could not load Eventbrite events', err); }
   if (SHEET_ID) {
     try {
       const fromSheet = await loadSheet();
       const key = e => `${e.date.toDateString()}|${e.rsvp || e.title.toLowerCase()}`;
       const seen = new Set(fromSheet.map(key));
-      EVENTS = [...fromSheet, ...EVENTS.filter(e => !e.sample && !seen.has(key(e)))];
+      EVENTS = [...fromSheet, ...EVENTS.filter(e => !seen.has(key(e)))];
     } catch (err) { console.warn('Could not load events sheet', err); }
   }
   render();

@@ -7,7 +7,7 @@ Static site (no build step needed to host). Pages: index.html, events.html, lead
 
 ## How events get onto the calendar
 - **Eventbrite:** `.github/workflows/eventbrite-sync.yml` runs `scripts/sync_eventbrite.py` daily (and on demand from the Actions tab). It writes `assets/eventbrite.json` and commits it if anything changed.
-- **Leads' Google Sheet:** set `SHEET_ID` in `assets/site.js` to the Sheet's ID. The Sheet needs a tab named `Events` and "Anyone with the link: Viewer" sharing. When it's set, sample events are hidden.
+- **Leads' Google Sheet:** set `SHEET_ID` in `assets/site.js` to the Sheet's ID. The Sheet needs a tab named `Events` and "Anyone with the link: Viewer" sharing.
 - **By hand:** the `EVENTS` list in `assets/site.js`.
 
 ## Live site
