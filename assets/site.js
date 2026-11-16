@@ -1,6 +1,6 @@
 // Leads' Google Sheet. Paste the Sheet's ID (the long code in its web address) between the quotes.
 // The Sheet must be shared as "Anyone with the link: Viewer". Leave empty to use only the events below.
-const SHEET_ID = '';
+const SHEET_ID = '1hGMKhNtsym7kIFXtqrHNn1FWWwo9dzVkPvgK7K5q9PM';
 const SHEET_TAB = 'Events';
 
 // Hand-added events.
