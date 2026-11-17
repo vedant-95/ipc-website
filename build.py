@@ -102,8 +102,8 @@ SANDRO_EMAIL = 'sandro.turriate@gmail.com'
 HN = 'https://humannaturemushrooms.com'
 def ext(u, t): return f'<a href="{u}" target="_blank" rel="noopener">{t}</a>'
 L = [
-  ('katherine.jpg', 'Katherine Tomlinson', 'she/they', 'Founder &amp; Coordinator · Marin hikes · Medicine Music Study Group', [
-    "Katherine Tomlinson is the founder and coordinator of the Integral Psychedelic Community, where she co-leads the community’s Marin hikes and Medicine Music Study Group, creating spaces for people to connect with nature, music, and one another. Currently she lives in unceded Coastal Miwok territory, also known as Sausalito, CA.",
+  ('katherine.jpg', 'Katherine', 'she/they', 'Founder &amp; Coordinator · Marin hikes · Medicine Music Study Group', [
+    "Katherine is the founder and coordinator of the Integral Psychedelic Community, where she co-leads the community’s Marin hikes and Medicine Music Study Group, creating spaces for people to connect with nature, music, and one another. Currently she lives in unceded Coastal Miwok territory, also known as Sausalito, CA.",
     "Katherine has been involved in psychedelic education, advocacy, and community organizing since 2007. She holds a liberal arts degree from The Evergreen State College, where she was able to focus her study on psychedelics and plant teachers, space holding for expanded states of consciousness, and community building. Currently, she is working towards a masters degree from the California Institute of Integral Studies, works as ceremonialist in one-on-one containers, organizes educational events, contributes to conferences, and has supported the development of spaces for learning, dialogue, and community building with psychedelics and plant teachers for over half of her life.",
     "Her current studies focus on the traditional Andean teacher plant Tsunaq (Wachuma, also known as San Pedro), with a particular interest in its archaeological history, cultural significance, and relationship to Andean cosmology. Through ongoing study, travel, and relationships with traditional knowledge keepers in Peru, she seeks to deepen her understanding of the cactus and the cultures that have maintained relationships with it for thousands of years.",
     f"Katherine’s approach emphasizes cultural respect, reciprocity, lifelong learning, harm reduction, and the importance of building meaningful relationships between people, communities, and the natural world. She can be reached via <a href=\"mailto:{KATH_EMAIL}\">email</a>, or on Instagram at {ext(KATH_IG, '@integralwithkatherine')}."],
@@ -133,7 +133,7 @@ def lead_card(img, n, pr, role, paras, links):
             + ''.join(f'<p>{x}</p>' for x in paras) + (f'<div class="lead-links">{btns}</div>' if btns else '') + '</div></article>')
 leads = ''.join(lead_card(*l) for l in L)
 page('leads.html', f'Community Leads | {NAME}',
-     'Meet the community leads of the Integral Psychedelic Community: Katherine Tomlinson, Romeo, Sky and Sandro, who lead community hikes in SF and Marin and the Medicine Music Study Group in Berkeley.',
+     'Meet the community leads of the Integral Psychedelic Community: Katherine, Romeo, Sky and Sandro, who lead community hikes in SF and Marin and the Medicine Music Study Group in Berkeley.',
 f'''<div class="wrap">
   <div class="page-head"><div><p class="eyebrow">The people</p><h1>Community Leads</h1><p class="lede">The facilitators and organizers who hold space for our community.</p></div></div>
   <div class="leads">{leads}</div>
