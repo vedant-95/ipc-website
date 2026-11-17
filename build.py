@@ -115,14 +115,18 @@ L = [
   ('romeo.jpg', 'Romeo', 'he/him', 'Community Lead · Medicine Music Study Group', [
     "Romeo is a lifelong musician and student of sacred traditions who co-facilitates the Integral Psychedelic Community’s Medicine Music Study Group. His musical journey now focuses on sacred and devotional music and traditional instruments. Drawing inspiration from his initiation in three spiritual lineages, he explores music as a pathway for healing, meditation, and connection.",
     "He also co-leads a Bay Area music collective and hosts community gatherings centered on meditation, sacred sound, shared musical experiences, and community building. He also provides spiritual guidance, energy healing, meditation, and integrative approaches to personal transformation. His approach emphasizes cultural respect, lifelong learning, and the power of music to bring people together."], []),
-  ('sky.jpg', 'Sky', None, 'Community Lead · Marin hikes', [
-    f"Sky co-leads the community hikes in Marin and is the founder of the company {ext(HN, 'Human Nature')}. Bio and photo coming soon!"],
+  ('sky.jpg', 'Sky', 'he/him', 'Community Lead · Marin hikes', [
+    f"Sky is the founder of {ext(HN, 'Human Nature')}, a mission-driven organization crafting psilocybin mushroom offerings dedicated to empowering individuals on their journeys of healing, spiritual exploration, self-discovery, and personal growth. Rooted in the belief that greater self-awareness and connection can help us flourish, Human Nature seeks to inspire a more conscious and compassionate relationship with ourselves, each other, and the natural world.",
+    "Sky believes that meaningful growth begins with learning to see ourselves more clearly, approaching life with curiosity and compassion, and creating space for genuine connection.",
+    "An avid hiker and outdoor enthusiast, Sky finds inspiration in nature and the perspective it offers. He enjoys bringing people together through shared outdoor experiences, creating opportunities to slow down, reflect, and connect more deeply with ourselves, one another, and the natural world."],
    [(HN, 'Human Nature ↗')]),
 ]
+PHOTO_SIZE = {'sky.jpg': (640, 801)}
 def lead_card(img, n, pr, role, paras, links):
     TGT = ' target="_blank" rel="noopener"'
     pron = f' <span class="pronouns">({pr})</span>' if pr else ''
-    photo = (f'<img class="lead-photo" src="assets/leads/{img}" alt="{n}, {NAME} community lead" width="640" height="640">' if img
+    w, h = PHOTO_SIZE.get(img, (640, 640))
+    photo = (f'<img class="lead-photo" src="assets/leads/{img}" alt="{n}, {NAME} community lead" width="{w}" height="{h}" style="aspect-ratio:{w}/{h}">' if img
              else f'<div class="lead-photo lead-photo-empty"><span>{n}</span><small>Photo coming soon</small></div>')
     btns = ''.join(f'<a class="btn btn-sm {"btn-primary" if i == 0 else "btn-ghost"}" href="{u}"{"" if u.startswith("mailto:") else TGT}>{t}</a>' for i, (u, t) in enumerate(links))
     return (f'<article class="lead">{photo}<div class="lead-body"><h3>{n}{pron}</h3><p class="role">{role}</p>'
